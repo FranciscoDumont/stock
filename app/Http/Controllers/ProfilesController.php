@@ -9,8 +9,8 @@ class ProfilesController extends Controller
 {
     public function index($username)
     {
-        $user = User::firstWhere('username', $username);
-        return view('home',[
+        $user = User::where('username', $username)->firstOrFail();
+        return view('profiles.index',[
             // Esto le manda la variable 'user' a la vista
             'user' => $user,
         ]);

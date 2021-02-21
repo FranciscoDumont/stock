@@ -6,17 +6,18 @@
             <div class="col-3 p-5">
                 <img
                     src="https://cdn.shopify.com/s/files/1/0103/8482/products/00_Unicorn_Giant_Meowchi.jpg?v=1506808766"
-                    height="200px;" class="rounded-circle" alt="">
+                    height="200px;" class="rounded-circle shadow-sm" alt="">
             </div>
             <div class="col-9 pt-5">
                 <div class="d-flex justify-content-between align-items-baseline">
                     <h1>{{ $user->username }}</h1>
-                    <a href="#">Add new post</a>
+                    <a href="/post/create" class="btn btn-outline-secondary" role="button">Add new post</a>
                 </div>
                 <div class="d-flex">
-                    <div class="pr-5"><strong>100</strong> products</div>
-                    <div class="pr-5"><strong>50</strong> near expiration</div>
-                    <div class="pr-5"><strong>24</strong> expired</div>
+                    <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
+                    <div class="pr-5"><strong>50</strong> followers</div>
+                    <div class="pr-5"><strong>24</strong> following</div>
+                    <i class="fas fa-heart"></i>
                 </div>
                 <div class="pt-4 font-weight-bold">{{ $user->name }}</div>
                 <div>{{ $user->profile->description }}</div>
@@ -26,18 +27,13 @@
         </div>
 
         <div class="row pt-5">
-            <div class="col-4">
-                <img src="https://i.pinimg.com/originals/be/d4/6c/bed46c1177df1ccb545d66ccdb62777e.jpg" class="w-100"
-                     alt="">
-            </div>
-            <div class="col-4">
-                <img src="https://i.pinimg.com/originals/be/d4/6c/bed46c1177df1ccb545d66ccdb62777e.jpg" class="w-100"
-                     alt="">
-            </div>
-            <div class="col-4">
-                <img src="https://i.pinimg.com/originals/be/d4/6c/bed46c1177df1ccb545d66ccdb62777e.jpg" class="w-100"
-                     alt="">
-            </div>
+            @foreach($user->posts as $post)
+                <div class="col-4 pb-5">
+                    <a href="/post/{{ $post->id }}">
+                        <img src="/storage/{{ $post->image }}" class="w-100 rounded shadow" alt="">
+                    </a>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection

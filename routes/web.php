@@ -17,13 +17,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/profile/' . Auth::user()->username);
+//    return view('welcome');
 });
 
 Auth::routes();
 
 
 Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('user.show');
+Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('user.edit');
+Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('user.update');
 
 Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post', [PostController::class, 'store']);

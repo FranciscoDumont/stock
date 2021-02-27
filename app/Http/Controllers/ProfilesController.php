@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -18,15 +17,15 @@ class ProfilesController extends Controller
         ]);
     }
 
-    public function edit($username)
+    public function edit(User $user)
     {
-        $user = User::where('username', $username)->firstOrFail();
+        $this->authorize('update', $user->profile);
         return view('profiles.edit', ['user' => $user]);
     }
 
-    public function update($username)
+    public function update(User $user)
     {
-        $user = User::where('username', $username)->firstOrFail();
+        $this->authorize('update', $user->profile);
 
         $data = request()->validate([
             'name' => 'required',
@@ -39,6 +38,6 @@ class ProfilesController extends Controller
 
         auth()->user()->profile->update($data);
 
-        return redirect("/profile/{$username}");
+        return redirect("/profile/{$user->username}");
     }
 }

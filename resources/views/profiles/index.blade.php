@@ -11,7 +11,11 @@
             <div class="col-9 pt-5">
                 <div class="d-flex justify-content-between align-items-baseline">
                     <h1>{{ $user->username }}</h1>
-                    <a href="/profile/{{ $user->username }}/edit" class="btn btn-outline-secondary" role="button"><i class="fas fa-cog"></i></a>
+
+                    @can('update', $user->profile)
+                        <a href="/profile/{{ $user->id }}/edit" class="btn btn-outline-secondary" role="button"><i class="fas fa-cog"></i></a>
+                    @endcan
+
                 </div>
                 <div class="d-flex">
                     <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
@@ -25,9 +29,11 @@
                 </div>
             </div>
             <div class="col-12">
-                <a href="/post/create" class="btn btn-outline-primary float-right" role="button">
-                    Add new post <i class="far fa-image fa-lg pl-2"></i>
-                </a>
+                @can('update', $user->profile)
+                    <a href="/post/create" class="btn btn-outline-primary float-right" role="button">
+                        Add new post <i class="far fa-image fa-lg pl-2"></i>
+                    </a>
+                @endcan
             </div>
         </div>
 

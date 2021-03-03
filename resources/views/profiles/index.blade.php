@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-3 p-5">
                 <img
-                    src="https://cdn.shopify.com/s/files/1/0103/8482/products/00_Unicorn_Giant_Meowchi.jpg?v=1506808766"
+                    src="{{ $user->profile->profileImage() }}"
                     class="rounded-circle shadow-sm w-100" alt="">
             </div>
             <div class="col-9 pt-5">

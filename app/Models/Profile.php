@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $url
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $image
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newQuery()
@@ -21,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Profile whereImage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Profile whereUserId($value)
@@ -31,6 +33,11 @@ class Profile extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function profileImage()
+    {
+        return $this->image ? '/storage/' . $this->image : "/images/default-avatar.png";
+    }
 
     public function user(){
         return $this->belongsTo(User::Class);

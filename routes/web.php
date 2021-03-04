@@ -31,3 +31,7 @@ Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('us
 Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post', [PostController::class, 'store']);
 Route::get('/post/{post}', [PostController::class, 'show']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

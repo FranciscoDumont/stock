@@ -14,7 +14,7 @@
                 <div class="d-flex justify-content-between align-items-baseline">
                     <div class="d-flex align-items-center pb-3">
                         <div class="h1">{{ $user->username }}</div>
-                        <button class="btn btn-primary ml-3">Follow</button>
+                        <follow-button user-id="{{ $user->id }}"></follow-button>
                     </div>
                     @can('update', $user->profile)
                         <a href="/profile/{{ $user->id }}/edit" class="btn btn-outline-secondary" role="button"><i class="fas fa-cog"></i></a>

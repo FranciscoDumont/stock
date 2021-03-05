@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfilesController;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/follow/{user}', [FollowsController::class, 'store']);
 
 Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('user.show');
 Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('user.edit');

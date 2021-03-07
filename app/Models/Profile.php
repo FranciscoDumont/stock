@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $image
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $followers
+ * @property-read int|null $followers_count
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Profile newQuery()
@@ -41,5 +43,10 @@ class Profile extends Model
 
     public function user(){
         return $this->belongsTo(User::Class);
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

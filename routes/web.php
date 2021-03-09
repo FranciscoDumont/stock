@@ -17,10 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/profile/' . Auth::user()->username);
-//    return view('welcome');
-})->middleware('auth');
+Route::get('/', [PostController::class, 'index'])->middleware('auth');
 
 Auth::routes();
 

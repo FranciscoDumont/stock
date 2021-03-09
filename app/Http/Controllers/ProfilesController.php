@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -12,12 +13,32 @@ class ProfilesController extends Controller
     public function index($username)
     {
         $user = User::where('username', $username)->firstOrFail();
+
         $follows =  (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
-        return view('profiles.index',[
-            // Esto le manda la variable 'user' a la vista
-            'user' => $user,
-            'follows' => $follows,
-        ]);
+
+        $postCount = Cache::remember(
+            'count.posts.' . $user->id,
+            now()->addSeconds(30),
+            function () use ($user) {
+                $user->posts->count();
+            });
+
+        $followersCount = Cache::remember(
+            'count.followers.' . $user->id,
+            now()->addSeconds(30),
+            function () use ($user) {
+                $user->profile->followers->count();
+            });
+
+        $followingCount = Cache::remember(
+            'count.following.' . $user->id,
+            now()->addSeconds(30),
+            function () use ($user) {
+                $user->following->count();
+            });
+
+
+        return view('profiles.index', compact('user', 'follows', 'postCount', 'followersCount', 'followingCount'));
     }
 
     public function edit(User $user)

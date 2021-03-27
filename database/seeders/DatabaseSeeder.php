@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use App\Models\Profile;
+use App\Models\Stock;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use phpDocumentor\Reflection\Types\Object_;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,8 +18,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
 
+        // User
         $user = new User;
         $user->name = 'Teke';
         $user->username = 'teketeke';
@@ -24,11 +27,16 @@ class DatabaseSeeder extends Seeder
         $user->password = bcrypt('1234567890');
         $user->save();
 
-        $profile = new Profile;
-        $profile->user_id = 1;
-        $profile->description = 'Hola, esto es una descripcion';
-        $profile->url = 'google.com';
-        $profile->save();
+        // Product
+        $product = new Product();
+        $product->name = 'Hola';
+        $product->save();
 
+        // Stock
+        $stock = new Stock();
+        $stock->stock = 2;
+        $stock->user()->associate($user);
+        $stock->product()->associate($product);
+        $stock->save();
     }
 }

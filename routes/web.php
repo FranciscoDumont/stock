@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\FollowsController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PostController::class, 'index'])->middleware('auth');
+Route::get('/', [ProductController::class, 'index'])->middleware('auth');
 
 Auth::routes();
 
@@ -27,9 +27,9 @@ Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('user.
 Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('user.edit');
 Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('user.update');
 
-Route::get('/post/create', [PostController::class, 'create']);
-Route::post('/post', [PostController::class, 'store']);
-Route::get('/post/{post}', [PostController::class, 'show']);
+Route::get('/post/create', [ProductController::class, 'create']);
+Route::post('/post', [ProductController::class, 'store']);
+Route::get('/post/{post}', [ProductController::class, 'show']);
 
 Auth::routes();
 

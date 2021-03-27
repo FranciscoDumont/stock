@@ -16,16 +16,14 @@ use Illuminate\Notifications\Notifiable;
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
+ * @property string|null $image
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Profile[] $following
- * @property-read int|null $following_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Post[] $posts
- * @property-read int|null $posts_count
- * @property-read \App\Models\Profile|null $profile
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Stock[] $stock
+ * @property-read int|null $stock_count
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|User query()
@@ -33,6 +31,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereImage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
@@ -54,6 +53,7 @@ class User extends Authenticatable
         'email',
         'username',
         'password',
+        'image',
     ];
 
     /**
@@ -75,26 +75,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected static function boot()
+    public function profileImage()
     {
-        parent::boot();
-
-        static::created(function ($user) {
-            $user->profile()->create();
-        });
+        return $this->image ? '/storage/' . $this->image : "/images/default-avatar.png";
     }
 
-    public function profile(){
-        return $this->hasOne(Profile::class);
-    }
-
-    public function posts()
+    public function stock()
     {
-        return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
-    }
-
-    public function following()
-    {
-        return $this->belongsToMany(Profile::class);
+        return $this->hasMany(Stock::class);
     }
 }

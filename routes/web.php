@@ -1,9 +1,7 @@
 <?php
 
 use App\Http\Controllers\FollowsController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilesController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,20 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ProductController::class, 'index'])->middleware('auth');
+Route::get('/', \App\Http\Livewire\Product\Index::class)->middleware('auth')->name('home');
 
 Auth::routes();
 
-Route::post('/follow/{user}', [FollowsController::class, 'store']);
+//Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('user.show');
+//Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('user.edit');
+//Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('user.update');
+//
+//Route::get('/post/create', [ProductController::class, 'create']);
+//Route::post('/post', [ProductController::class, 'store']);
+//Route::get('/post/{post}', [ProductController::class, 'show']);
 
-Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('user.show');
-Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('user.edit');
-Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('user.update');
-
-Route::get('/post/create', [ProductController::class, 'create']);
-Route::post('/post', [ProductController::class, 'store']);
-Route::get('/post/{post}', [ProductController::class, 'show']);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

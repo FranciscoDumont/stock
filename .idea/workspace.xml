@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2fd6ac2-8166-4f80-b1bc-cdd56013fb56" name="Default Changelist" comment="" />
+    <list default="true" id="b2fd6ac2-8166-4f80-b1bc-cdd56013fb56" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/Home.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Stock.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/ProductFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/StockFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_29_194121_create_products_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_30_194110_create_stocks_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/livewire/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/stock.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/stock.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -210,7 +225,9 @@
       <workItem from="1615219967891" duration="1284000" />
       <workItem from="1615255381447" duration="4034000" />
       <workItem from="1616878128125" duration="2805000" />
-      <workItem from="1616934838995" duration="10099000" />
+      <workItem from="1616934838995" duration="11302000" />
+      <workItem from="1617021416319" duration="509000" />
+      <workItem from="1617044814254" duration="2701000" />
     </task>
     <servers />
   </component>

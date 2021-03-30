@@ -22,7 +22,8 @@ class StockFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'stock' => $this->faker->randomDigitNotNull(),
+            'expiration' => $this->faker->date(),
         ];
     }
 }

@@ -19,27 +19,23 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         // User
-        $user = new User;
-        $user->name = 'Teke';
-//        $user->username = 'teketeke';
-        $user->email = 'teke@gmail.com';
-        $user->password = bcrypt('1234567890');
-        $user->save();
+        $user = User::factory()->create([
+           'name' => 'Teke',
+           'email' => 'teke@gmail.com',
+           'password' => bcrypt('1234567890'),
+        ]);
 
         // Product
-        $product = new Product();
-        $product->name = 'Hola';
-        $product->save();
+        $products  = Product::factory()
+            ->count(5)
+            ->create();
 
         // Stock
-        $stock = new Stock();
-        $stock->stock = 2;
-        $stock->user()->associate($user);
-        $stock->product()->associate($product);
-        $stock->save();
-
-        // Todo
-        // Hacer unos seeders piolas con factory
+        Stock::factory()
+            ->for($user)
+            ->for($products->random())
+            ->count(10)
+            ->create();
 
     }
 }

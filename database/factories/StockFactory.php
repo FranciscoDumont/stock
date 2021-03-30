@@ -23,7 +23,7 @@ class StockFactory extends Factory
     {
         return [
             'stock' => $this->faker->randomDigitNotNull(),
-            'expiration' => $this->faker->date(),
+            'expiration' => $this->faker->dateTimeBetween('-2 weeks', '+2 weeks'),
         ];
     }
 }

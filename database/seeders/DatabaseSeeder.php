@@ -31,11 +31,13 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         // Stock
-        Stock::factory()
-            ->for($user)
-            ->for($products->random())
-            ->count(10)
-            ->create();
+        for ($i = 1; $i <= 10; $i++) {
+            Stock::factory()
+                ->for($user)
+                ->for($products->random())
+                ->create();
+        }
+
 
     }
 }

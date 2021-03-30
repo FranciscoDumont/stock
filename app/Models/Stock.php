@@ -14,6 +14,10 @@ class Stock extends Model
         'expiration'
     ];
 
+    protected $casts = [
+        'expiration' => 'date:Y-m-d',
+    ];
+
     public function product()
     {
         return $this->belongsTo(Product::class);

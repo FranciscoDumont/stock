@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Home extends Component
@@ -9,6 +10,8 @@ class Home extends Component
 
     public function render()
     {
-        return view('livewire.home');
+        $stocks = Auth::user()->stock()->orderBy('expiration', 'ASC')->get();
+
+        return view('livewire.home', compact('stocks'));
     }
 }

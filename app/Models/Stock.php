@@ -27,4 +27,31 @@ class Stock extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function statusColor()
+    {
+        $diff = now()->diffInDays($this->expiration, false);
+        $result = 0;
+        switch ($diff) {
+            case $diff > 3*4:
+                $result = "#2C82C9";
+                break;
+            case $diff > 3*3:
+                $result = "#2CC990";
+                break;
+            case $diff > 3*2:
+                $result = "#EEE657";
+                break;
+            case $diff > 3*1:
+                $result = "#FCB941";
+                break;
+            case $diff > 3*0:
+                $result = "#FC6042";
+                break;
+            default:
+                $result = "#242424";
+                break;
+        }
+        return $result;
+    }
 }

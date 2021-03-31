@@ -14,16 +14,49 @@
                 <thead class="bg-gray-50">
                 <tr>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        wire:click="order('products.name')"
+                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Producto
+                        {{-- Sort Icon --}}
+                        @if($sort == 'products.name')
+                            @if($direction == 'ASC')
+                                <i class="fas fa-sort-up float-right mt-1"></i>
+                            @else
+                                <i class="fas fa-sort-down float-right mt-1"></i>
+                            @endif
+                        @else
+                            <i class="fas fa-sort float-right mt-1"></i>
+                        @endif
                     </th>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        wire:click="order('expiration')"
+                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Vencimiento
+                        {{-- Sort Icon --}}
+                        @if($sort == 'expiration')
+                            @if($direction == 'ASC')
+                                <i class="fas fa-sort-up float-right mt-1"></i>
+                            @else
+                                <i class="fas fa-sort-down float-right mt-1"></i>
+                            @endif
+                        @else
+                            <i class="fas fa-sort float-right mt-1"></i>
+                        @endif
                     </th>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        wire:click="order('stock')"
+                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Cantidad
+                        {{-- Sort Icon --}}
+                        @if($sort == 'stock')
+                            @if($direction == 'ASC')
+                                <i class="fas fa-sort-up float-right mt-1"></i>
+                            @else
+                                <i class="fas fa-sort-down float-right mt-1"></i>
+                            @endif
+                        @else
+                            <i class="fas fa-sort float-right mt-1"></i>
+                        @endif
                     </th>
                     <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Edit</span>

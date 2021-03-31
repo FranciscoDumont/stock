@@ -27,11 +27,11 @@ class DatabaseSeeder extends Seeder
 
         // Product
         $products  = Product::factory()
-            ->count(5)
+            ->count(20)
             ->create();
 
         // Stock
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 50; $i++) {
             Stock::factory()
                 ->for($user)
                 ->for($products->random())

@@ -4,8 +4,10 @@
         <!-- This example requires Tailwind CSS v2.0+ -->
         <x-table>
 
-            <div class="px-6 py-4">
-                <x-jet-input type="text" wire:model="search" name="search" placeholder="Buscar" class="float-right mb-4 bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none" />
+            <div class="px-6 py-4 flex items-center justify-between">
+                @livewire('create-product')
+
+                <x-jet-input type="text" wire:model="search" name="search" placeholder="Buscar" class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none" />
 {{--                <x-jet-input type="text" wire:model="search" class="w-full" placeholder="Buscar"/>--}}
             </div>
 

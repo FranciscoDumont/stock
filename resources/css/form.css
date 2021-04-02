@@ -1,0 +1,38 @@
+.form-control {
+    @apply border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm
+}
+
+.ui-autocomplete {
+    position: absolute;
+    z-index: 100000;
+    cursor: default;
+    padding: 0;
+    margin-top: 2px;
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.ui-autocomplete > li {
+    padding: 3px 20px;
+}
+.ui-autocomplete > li.ui-state-focus {
+    background-color: #DDD;
+}
+.ui-helper-hidden-accessible {
+    display: none;
+}
+
+.ui-menu-item .ui-menu-item-wrapper.ui-state-active {
+    background: #C7D2FE !important;
+    font-weight: bold !important;
+    color: #312E81 !important;
+}

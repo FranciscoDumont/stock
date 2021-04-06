@@ -14,7 +14,9 @@ class CreateProduct extends Component
     public $name;
     public $imageURL;
     public $expiration;
-    public $stock;
+    protected $rules = [
+      'name' => 'required',
+    ];
 
     public function mount(){
         $this->availableProducts = Product::groupBy('name')->pluck('name')->toArray();
@@ -27,6 +29,9 @@ class CreateProduct extends Component
 
     public function save()
     {
+
+        $this->validate();
+
         $product = new Product();
         $product->name = ucwords($this->name);
         $product->image = $this->imageURL;

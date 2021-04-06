@@ -12,6 +12,9 @@
             <div class="mb-4">
                 <x-jet-label value="Nombre del Producto"/>
                 <x-jet-input autocomplete="off" id="product-name-input" type="text" class="form-input w-full" wire:model.defer="name"/>
+
+                <x-jet-input-error for="name"/>
+
             </div>
             <div class="mb-4">
                 <x-jet-label value="Fecha de Vencimiento"/>

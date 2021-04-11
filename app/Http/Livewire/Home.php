@@ -13,6 +13,8 @@ class Home extends Component
     public $sort = 'expiration';
     public $direction = 'ASC';
 
+    protected $listeners = ['render'];
+
     public function render()
     {
         $stocks = Stock::where('user_id', Auth::user()->id)

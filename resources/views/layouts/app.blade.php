@@ -17,6 +17,7 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -48,5 +49,27 @@
         @livewireScripts
         <script src="https://cdn.jsdelivr.net/npm/turbolinks@5.2.0/dist/turbolinks.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
+
+        <script>
+            Livewire.on('alert', event => {
+                Swal.fire({
+                    customClass: {
+                        container: 'position-absolute'
+                    },
+                    toast: true,
+                    title: event.detail.title,
+                    text: event.detail.text,
+                    icon: event.detail.type,
+                    background: '#e6ffe6',
+                    position: 'top-right',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+            })
+        </script>
     </body>
 </html>
+
+{{--'🥳🍾🎊🥂',--}}
+{{--message,--}}
+{{--'success',--}}

@@ -8,7 +8,6 @@
                 @livewire('create-product')
 
                 <x-jet-input type="text" wire:model="search" name="search" placeholder="Buscar" class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none" />
-{{--                <x-jet-input type="text" wire:model="search" class="w-full" placeholder="Buscar"/>--}}
             </div>
 
             @if($stocks->count())
@@ -32,7 +31,7 @@
                     </th>
                     <th scope="col"
                         wire:click="order('expiration')"
-                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        class="cursor-pointer px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Vencimiento
                         {{-- Sort Icon --}}
                         @if($sort == 'expiration')
@@ -47,7 +46,7 @@
                     </th>
                     <th scope="col"
                         wire:click="order('stock')"
-                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        class="cursor-pointer px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Cantidad
                         {{-- Sort Icon --}}
                         @if($sort == 'stock')
@@ -71,8 +70,8 @@
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center">
                             <div class="flex-shrink-0 h-10 w-10">
-                                <img class="h-10 w-10 rounded-full"
-                                     src="{{ $stock->product->image }}"
+                                <img class="h-10 w-10 object-cover rounded-full"
+                                     src="{{ $stock->product->imageURL() }}"
                                      alt="{{ $stock->product->name }}">
                             </div>
                             <div class="ml-4">
@@ -85,21 +84,21 @@
                             </div>
                         </div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">
+                    <td class="px-6 py-4 whitespace-nowrap text-center">
                         <div class="text-sm text-gray-900">
                             <span style="color: {{ $stock->statusColor() }}">
                                 <i class="fas fa-circle fa-xs"></i>
                             </span>
                             <span>
-                                {{ $stock->expiration->format('d/m/Y') }}
+                                {{ ($stock->expiration) ? $stock->expiration->format('d/m/Y') : "No tiene :)" }}
                             </span>
                         </div>
-                        <div class="text-sm text-gray-500">{{ $stock->expiration->diffForHumans() }}</div>
+                        <div class="text-sm text-gray-500">{{ ($stock->expiration) ? $stock->expiration->diffForHumans() : "" }}</div>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {{ $stock->stock }}
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-gray-500">
+                        @livewire('product-count', ['stock' => $stock], key($stock->id))
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                         <a href="#" class="text-indigo-600 hover:text-indigo-900"><i class="fas fa-edit"></i></a>
                     </td>
                 </tr>

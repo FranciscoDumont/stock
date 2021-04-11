@@ -103,4 +103,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Stock::class);
     }
+
+    public function hasProduct($product)
+    {
+        return $this->stock()->where('product_id', $product->id)->exists();
+    }
 }

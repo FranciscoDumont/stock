@@ -35,6 +35,6 @@ class Product extends Model
 
     public function imageURL()
     {
-        return $this->image ? '/storage/' . $this->image : "images/default-avatar.png";
+        return $this->image ?? asset("img/default-avatar.png");
     }
 }

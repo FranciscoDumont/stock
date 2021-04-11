@@ -55,6 +55,9 @@ class Stock extends Model
 
     public function statusColor()
     {
+        if (is_null($this->expiration)){
+            return "#FFFFFF";
+        }
         $diff = now()->diffInDays($this->expiration, false);
         $result = 0;
         switch ($diff) {

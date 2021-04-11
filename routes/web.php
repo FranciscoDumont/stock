@@ -14,8 +14,8 @@ use App\Http\Livewire\Home;
 |
 */
 
-Route::get('/', function (){
-    return view('welcome');
-});
+//Route::get('/', function (){
+//    return view('welcome');
+//});
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', Home::class)->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/', Home::class)->name('dashboard');

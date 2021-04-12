@@ -57,16 +57,19 @@
                         container: 'position-absolute'
                     },
                     toast: true,
-                    title: event.detail.title,
-                    text: event.detail.text,
-                    icon: event.detail.type,
-                    background: '#e6ffe6',
+                    title: event.title,
+                    text: event.text,
+                    html: event.html,
+                    icon: event.icon,
+                    iconHtml: event.iconHtml,
+                    background: event.background,
                     position: 'top-right',
                     showConfirmButton: false,
                     timer: 2000
                 })
             })
         </script>
+
     </body>
 </html>
 

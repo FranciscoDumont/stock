@@ -77,7 +77,12 @@ class CreateProduct extends Component
         $this->reset(['merge', 'name', 'expiration', 'stock', 'product', 'stockExists']);
 
         $this->emitTo('home', 'render');
-        $this->emit('alert', 'Se cargó el producto 🍾🎊🥂');
+        $this->emit('alert', [
+            'type' => 'success',
+            'title' => 'Se cargó el producto 🍾🎊🥂',
+            'text' => '',
+            'background' => '#e6ffe6',
+        ]);
     }
 
     public function close()

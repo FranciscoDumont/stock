@@ -17,7 +17,14 @@ class ProductCount extends Component
     {
         $this->stock->stock += 1;
         $this->stock->save();
-        $this->emit('alert', "Se agregó un {$this->stock->product->name}");
+        $this->emit('alert', [
+            'icon' => 'success',
+            'iconHtml' => '+',
+            'title' => "Se agregó 1 {$this->stock->product->name}",
+            'text' => '',
+            'background' => '#e6ffe6',
+            'html' => "<img class='h-10 w-10 object-cover rounded-full' src='{$this->stock->product->imageURL()}'>",
+        ]);
     }
 
     public function substract()
@@ -25,9 +32,12 @@ class ProductCount extends Component
         $this->stock->stock -= 1;
         $this->stock->save();
         $this->emit('alert', [
-            'type' => 'success',
-            'title' => "Se restó un {$this->stock->product->name}",
+            'icon' => 'error',
+            'iconHtml' => '-',
+            'title' => "Se restó 1 {$this->stock->product->name}",
             'text' => '',
+            'background' => '#FEF2F2',
+            'html' => "<img class='h-10 w-10 object-cover rounded-full' src='{$this->stock->product->imageURL()}'>",
         ]);
     }
 }

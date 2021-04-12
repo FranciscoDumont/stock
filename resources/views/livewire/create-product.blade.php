@@ -55,7 +55,7 @@
             <x-jet-secondary-button wire:click="close()">
                 Cerrar
             </x-jet-secondary-button>
-            <x-jet-button wire:click="save">
+            <x-jet-button wire:loading.attr="disabled" wire:target="save" wire:click="save" class="disabled:opacity-25">
                 Cargar Producto
             </x-jet-button>
         </x-slot>

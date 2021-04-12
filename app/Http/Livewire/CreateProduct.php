@@ -33,9 +33,12 @@ class CreateProduct extends Component
         $this->product = Product::where('name', $this->name)->first();
 
         if($this->product){
-            $this->imageURL = $this->product->image;
+            $this->imageURL = $this->product->imageURL();
             $this->stockExists = Auth::user()->hasProduct($this->product);
         } else {
+            if ($this->name){
+                $this->imageURL = asset('img/default-avatar.png');
+            }
             $this->stockExists = false;
         }
     }

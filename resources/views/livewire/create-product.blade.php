@@ -53,7 +53,7 @@
 
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="close()">
-                Cancelar
+                Cerrar
             </x-jet-secondary-button>
             <x-jet-button wire:click="save">
                 Cargar Producto

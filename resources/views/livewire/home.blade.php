@@ -99,7 +99,7 @@
                         @livewire('product-count', ['stock' => $stock], key($stock->id))
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                        <a href="#" class="text-indigo-600 hover:text-indigo-900"><i class="fas fa-edit"></i></a>
+                        @livewire('product-edit', ['$stock' => $stock], key($stock->id))
                     </td>
                 </tr>
                 @endforeach

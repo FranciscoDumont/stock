@@ -47,9 +47,7 @@
         @stack('modals')
 
         @livewireScripts
-        <script src="https://cdn.jsdelivr.net/npm/turbolinks@5.2.0/dist/turbolinks.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js" data-turbolinks-eval="false" data-turbo-eval="false"></script>
-
         <script>
             Livewire.on('alert', event => {
                 Swal.fire({

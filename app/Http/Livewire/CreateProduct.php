@@ -15,6 +15,7 @@ class CreateProduct extends Component
 
     public $name;
     public $imageURL;
+    public $imageInput;
 
     public $expiration, $stock = 1; // Stock
 
@@ -56,7 +57,7 @@ class CreateProduct extends Component
         if (!$this->product){
             $product = new Product();
             $product->name = ucwords($this->name);
-            $product->image = $this->imageURL;
+            $product->image = $this->imageInput ?? $this->imageURL;
             $product->save();
             $this->product = $product;
         }

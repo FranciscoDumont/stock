@@ -44,7 +44,7 @@
                 @if(!$product && $name)
                     <div class="">
                         <x-jet-label value="Imagen URL"/>
-                        <x-jet-input type="text" class="form-control w-full" onClick="this.select();" wire:model.lazy="imageURL"></x-jet-input>
+                        <x-jet-input type="text" class="form-control w-full" onClick="this.select();" wire:model.lazy="imageInput"></x-jet-input>
                     </div>
                 @endif
             </div>

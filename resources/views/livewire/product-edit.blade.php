@@ -5,7 +5,7 @@
 
     <x-jet-dialog-modal wire:model="open">
         <x-slot name="title">
-            Agregar un nuevo Producto {{ $stock }}
+            Editar stock de <b>{{ $stock->product->name }}</b>
         </x-slot>
 
         <x-slot name="content">
@@ -15,9 +15,40 @@
                     <x-jet-input type="text" autocomplete="off" class="form-input w-full"/>
 
                     <x-jet-input-error for="name"/>
-
                 </div>
+                <div class="row-span-2 w-full">
+                    <img class="mx-auto" src="{{ $stock->product->imageURL() }}" alt="">
+                </div>
+
+                <div class="">
+                    <x-jet-label value="Fecha de Vencimiento"/>
+                    <x-jet-input
+                        type="date"
+                        class="form-control"
+                        {{--wire:model.defer="expiration"--}}
+                        value="{{ $stock->expiration ? $stock->expiration->format('Y-m-d') : '' }}"></x-jet-input>
+                </div>
+
+                <div class="">
+                    <x-jet-label value="Cantidad"/>
+                    <x-jet-input type="number" class="form-control" {{--wire:model.defer="stock"--}}></x-jet-input>
+
+{{--                    @if($stockExists)--}}
+{{--                        <div>--}}
+{{--                            <x-jet-checkbox name="merge" wire:model="merge"></x-jet-checkbox>--}}
+{{--                            <label class="font-medium text-sm text-gray-500" for="merge">Combinar cantidad con el producto ya cargado</label>--}}
+{{--                        </div>--}}
+{{--                    @endif--}}
+                </div>
+
+{{--                @if(!$product && $name)--}}
+{{--                    <div class="">--}}
+{{--                        <x-jet-label value="Imagen URL"/>--}}
+{{--                        <x-jet-input type="text" class="form-control w-full" onClick="this.select();" wire:model.lazy="imageInput"></x-jet-input>--}}
+{{--                    </div>--}}
+{{--                @endif--}}
             </div>
+
         </x-slot>
 
         <x-slot name="footer">

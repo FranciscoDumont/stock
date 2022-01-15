@@ -1,0 +1,198 @@
+[
+  {
+    "id": 1,
+    "product_id": 1,
+    "user_id": 1,
+    "stock": 8,
+    "expiration": null
+  },
+  {
+    "id": 2,
+    "product_id": 2,
+    "user_id": 1,
+    "stock": 5,
+    "expiration": null
+  },
+  {
+    "id": 3,
+    "product_id": 3,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 4,
+    "product_id": 4,
+    "user_id": 1,
+    "stock": 6,
+    "expiration": "2021-06-04T03:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "product_id": 5,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": "2021-05-27T03:00:00.000Z"
+  },
+  {
+    "id": 6,
+    "product_id": 6,
+    "user_id": 1,
+    "stock": 2,
+    "expiration": "2021-05-23T03:00:00.000Z"
+  },
+  {
+    "id": 7,
+    "product_id": 7,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": "2021-10-19T03:00:00.000Z"
+  },
+  {
+    "id": 8,
+    "product_id": 8,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": "2021-06-15T03:00:00.000Z"
+  },
+  {
+    "id": 9,
+    "product_id": 9,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": "2021-06-02T03:00:00.000Z"
+  },
+  {
+    "id": 10,
+    "product_id": 10,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": "2021-06-10T03:00:00.000Z"
+  },
+  {
+    "id": 11,
+    "product_id": 11,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": "2021-10-22T03:00:00.000Z"
+  },
+  {
+    "id": 19,
+    "product_id": 19,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 20,
+    "product_id": 20,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 21,
+    "product_id": 21,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": "2021-05-23T03:00:00.000Z"
+  },
+  {
+    "id": 22,
+    "product_id": 22,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 23,
+    "product_id": 23,
+    "user_id": 1,
+    "stock": 2,
+    "expiration": null
+  },
+  {
+    "id": 24,
+    "product_id": 24,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 25,
+    "product_id": 25,
+    "user_id": 1,
+    "stock": 5,
+    "expiration": null
+  },
+  {
+    "id": 26,
+    "product_id": 26,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": "2021-05-09T03:00:00.000Z"
+  },
+  {
+    "id": 27,
+    "product_id": 27,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 28,
+    "product_id": 28,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 29,
+    "product_id": 29,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 30,
+    "product_id": 30,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 31,
+    "product_id": 31,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 32,
+    "product_id": 32,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 33,
+    "product_id": 33,
+    "user_id": 1,
+    "stock": 1,
+    "expiration": null
+  },
+  {
+    "id": 34,
+    "product_id": 34,
+    "user_id": 1,
+    "stock": 6,
+    "expiration": "2021-07-03T03:00:00.000Z"
+  },
+  {
+    "id": 35,
+    "product_id": 35,
+    "user_id": 1,
+    "stock": 2,
+    "expiration": "2021-12-23T03:00:00.000Z"
+  }
+]

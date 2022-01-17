@@ -29,6 +29,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->image = $request->image;
         $product->save();
+        return response()->json($product, 201);
     }
 
     /**
@@ -39,7 +40,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        return Product::findOrFail($id);
     }
 
     /**
@@ -51,10 +52,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = Product::findOrFail($request->id);
+        $product = Product::findOrFail($id);
         $product->name = $request->name;
         $product->image = $request->image;
         $product->save();
+        return response()->json($product, 200);
     }
 
     /**
@@ -63,8 +65,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        return Product::destroy($request->id);
+        Product::destroy($id);
+        return response()->json(null, 204);
     }
 }

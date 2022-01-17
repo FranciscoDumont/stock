@@ -17,6 +17,8 @@ class Stock extends Model
         'expiration' => 'date:Y-m-d',
     ];
 
+    protected $with = ['product'];
+
     public function product()
     {
         return $this->belongsTo(Product::class);

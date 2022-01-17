@@ -31,6 +31,7 @@ class StockController extends Controller
         $stock->expiration = $request->expiration;
         $stock->product()->associate($request->productId);
         $stock->save();
+        return response()->json($stock, 201);
     }
 
     /**
@@ -41,7 +42,7 @@ class StockController extends Controller
      */
     public function show($id)
     {
-        //
+        return Stock::findOrFail($id);
     }
 
     /**
@@ -51,14 +52,14 @@ class StockController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $stock = Stock::findOrFail($request->id);
+        $stock = Stock::findOrFail($id);
         $stock->stock = $request->stock;
         $stock->expiration = $request->expiration;
         $stock->product()->associate($request->productId);
         $stock->save();
-        return $stock;
+        return response()->json($stock, 200);
     }
 
     /**
@@ -67,9 +68,10 @@ class StockController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        return Stock::destroy($request->id);
+        Stock::destroy($id);
+        return response()->json(null, 200);
     }
 
 

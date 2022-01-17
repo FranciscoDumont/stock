@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Interesante lectura: https://laravel.com/docs/8.x/eloquent-serialization
+
 Route::apiResource('products', ProductController::class);
 
 Route::get('/stocks/user-stocks/{id}', [StockController::class, 'userStocks']);

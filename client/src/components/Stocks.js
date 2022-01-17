@@ -32,7 +32,6 @@ function Stocks(props) {
     return (
       <div className="expenses">
         {stocks.map(stock => {
-          console.log(stock);
           return <StockItem key={stock.id} stock={stock}/>
         })}
       </div>

@@ -1,5 +1,6 @@
 import './Stocks.css'
 import StockItem from './StockItem';
+import AddItemButton from './AddItemButton';
 import { useEffect, useState } from 'react';
 
 
@@ -31,6 +32,7 @@ function Stocks(props) {
   } else {
     return (
       <div className="expenses">
+        <AddItemButton/>
         {stocks.map(stock => {
           return <StockItem key={stock.id} stock={stock}/>
         })}

@@ -1,0 +1,26 @@
+.add-item-button {
+  position: fixed; /* Fixed/sticky position */
+  bottom: 2rem; /* Place the button at the bottom of the page */
+  right: 2rem; /* Place the button 2rem from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #2CC990; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 1.5rem 1.8rem; /* Some padding */
+  border-radius: 50%; /* Rounded corners */
+  font-size: 2rem; /* Increase font size */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.add-item-button > * {
+  transition: transform .5s ease-in;
+}
+.add-item-button:hover {
+  background-color: #2C82C9;
+}
+.add-item-button:hover > * {
+  transform: rotate(360deg);
+}
